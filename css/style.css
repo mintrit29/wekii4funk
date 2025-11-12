@@ -1,0 +1,514 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://files.catbox.moe/yzyg9i.png"); /* Thay bằng ảnh nền của bạn */
+  background-repeat: repeat;
+  background-color: #3e2e36;
+  color: #f5e0e0;
+  font-family: "PixelFont", monospace;
+  font-size: 16px;
+}
+
+/* Tắt tính năng làm mịn font chữ để giữ nguyên vẻ pixel */
+* {
+  image-rendering: pixelated;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+.container {
+  max-width: 900px; /* Chiều rộng tối đa là 900px */
+  width: 95%; /* Nhưng trên màn hình nhỏ hơn, nó sẽ co lại */
+  margin: 20px auto;
+  background-color: #3e2e36;
+  border: 2px solid #a86464;
+  box-shadow: 5px 5px 0px #a86464; /* Tạo hiệu ứng đổ bóng pixel */
+  padding: 10px;
+}
+
+.main-header {
+  background-color: #c9999e;
+  border: 2px solid #a86464;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.main-header h1 {
+  font-size: 2.5em;
+  color: #3e2e36;
+  text-shadow: 2px 2px 0px #f5e0e0;
+}
+
+.main-content {
+  display: flex;
+  gap: 10px;
+}
+
+.left-sidebar,
+.right-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.center-content {
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px dashed #a86464; /* Đường viền đứt nét */
+  padding: 20px;
+  text-align: center;
+}
+
+.main-character {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Kiểu cho các hộp (box) */
+.pic-log-box,
+.update-box {
+  border: 2px solid #a86464;
+  background-color: #5a444e;
+  margin-bottom: 10px;
+}
+
+.box-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  background-color: #a86464;
+  padding: 5px;
+  text-align: center;
+  color: #3e2e36;
+  font-weight: bold;
+}
+
+.pic-content,
+.update-content {
+  padding: 10px;
+}
+
+.pic-content {
+  height: 150px;
+  padding: 0;
+}
+
+.pic-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tùy chỉnh thanh cuộn */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #5a444e;
+}
+::-webkit-scrollbar-thumb {
+  background: #a86464;
+  border: 1px solid #3e2e36;
+}
+
+.update-box button {
+  background-color: #a86464;
+  border: 2px solid #3e2e36;
+  color: #f5e0e0;
+  font-family: inherit;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Menu bên phải */
+.right-sidebar nav {
+  background-color: #5a444e;
+  border: 2px solid #a86464;
+  padding: 10px;
+}
+
+.right-sidebar h3 {
+  background-color: #a86464;
+  color: #3e2e36;
+  padding: 5px;
+  margin: 10px 0 5px 0;
+  text-align: center;
+}
+
+.right-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.right-sidebar li a {
+  color: #f5e0e0;
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+}
+
+.right-sidebar li a:hover {
+  background-color: #a86464;
+  color: #3e2e36;
+}
+
+.main-footer {
+  border: 2px solid #a86464;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.pixel-title {
+  font-family: "Press Start 2P", cursive;
+  color: #5a444e;
+  text-shadow: 4px 4px 0px #c9999e;
+}
+
+/* Thêm vào cuối file style.css */
+
+.center-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === BẮT ĐẦU CSS CHO GALLERY VÀ SCROLL === */
+
+/* 1. Kích hoạt scroll cho cột giữa và giới hạn chiều cao */
+.center-content {
+  max-height: 100vh; /* Giới hạn chiều cao tối đa là 80% chiều cao màn hình */
+  overflow-y: auto; /* Hiển thị thanh cuộn theo chiều dọc KHI CẦN */
+  overflow-x: hidden; /* Luôn ẩn thanh cuộn ngang */
+}
+
+/* 2. Thiết lập layout grid cho gallery */
+.gallery-grid {
+  display: grid;
+  /* Tạo ra 3 cột có chiều rộng bằng nhau */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px; /* Khoảng cách giữa các ô ảnh */
+  width: 100%; /* Đảm bảo grid chiếm toàn bộ chiều rộng của cột giữa */
+  margin-top: 20px; /* Tạo khoảng cách với nội dung phía trên */
+}
+
+/* 3. Tạo kiểu cho từng ô ảnh trong grid */
+.gallery-item {
+  background-color: #f5e0e0; /* Màu nền trắng ngà giống trong ảnh mẫu */
+  border: 2px solid #a86464; /* Đường viền đồng bộ */
+  padding: 8px; /* Khoảng cách giữa ảnh và viền */
+  text-align: center;
+}
+
+/* 4. Định dạng cho ảnh bên trong ô */
+.gallery-item img {
+  width: 100%;
+  height: 150px; /* Chiều cao cố định cho các ảnh */
+  object-fit: cover; /* Đảm bảo ảnh lấp đầy ô mà không bị méo */
+  display: block; /* Loại bỏ khoảng trống thừa dưới ảnh */
+}
+
+/* 5. Định dạng cho mô tả dưới ảnh */
+.gallery-item p {
+  margin: 8px 0 0 0; /* Khoảng cách phía trên chữ */
+  color: #3e2e36; /* Màu chữ tối */
+  font-family: Arial, sans-serif; /* Dùng font dễ đọc hơn cho mô tả */
+  font-size: 14px;
+}
+
+/* === BẮT ĐẦU CSS CHO CỬA SỔ POPUP (MODAL) === */
+
+/* Lớp phủ nền tối semi-transparent */
+.modal {
+  display: none; /* Ẩn theo mặc định */
+  position: fixed; /* Luôn cố định trên màn hình */
+  z-index: 1000; /* Luôn nằm trên cùng */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Cho phép cuộn nếu ảnh quá lớn */
+  background-color: rgba(0, 0, 0, 0.85); /* Màu đen với độ trong suốt 85% */
+}
+
+/* Nội dung ảnh được phóng to */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80vh; /* Chiều cao tối đa là 80% chiều cao màn hình */
+  /* Thêm hiệu ứng phóng to */
+  animation-name: zoomIn;
+  animation-duration: 0.3s;
+}
+
+/* Animation cho hiệu ứng phóng to */
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Nút đóng (dấu X) */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* === BẮT ĐẦU CSS CHO THIẾT BỊ DI ĐỘNG (RESPONSIVE) === */
+
+@media (max-width: 768px) {
+  /* 1. Thay đổi layout chính thành 1 cột */
+  .main-content {
+    flex-direction: column; /* Xếp các cột chồng lên nhau theo chiều dọc */
+  }
+
+  /* 2. Cho các sidebar chiếm toàn bộ chiều rộng */
+  .left-sidebar,
+  .right-sidebar {
+    width: 100%;
+  }
+
+  /* 3. Giảm kích thước chữ của tiêu đề chính */
+  .pixel-title {
+    font-size: 1.8em; /* Giảm kích thước để không bị quá to */
+  }
+
+  /* 4. Thay đổi gallery thành 2 cột thay vì 3 */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* Hiển thị 2 cột trên mobile */
+    gap: 10px; /* Giảm khoảng cách một chút */
+  }
+
+  /* 5. Cho ảnh trong popup to hơn một chút trên màn hình dọc */
+  .modal-content {
+    max-width: 95%;
+  }
+
+  /* 6. (Tùy chọn) Giảm chiều cao của các ảnh trong gallery */
+  .gallery-item img {
+    height: 120px;
+  }
+}
+
+/* === BẮT ĐẦU CSS CHO HỘP NHẠC === */
+
+.audio-player {
+  margin-top: 20px;
+  /* Chúng ta có thể bỏ nền vì giờ chỉ có hình ảnh */
+  text-align: center; /* Căn giữa hộp nhạc */
+}
+
+.music-box {
+  width: 200px; /* Kích thước của hộp nhạc */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* Hiệu ứng chuyển động mượt mà */
+}
+
+.music-box:hover {
+  transform: scale(1.1); /* Phóng to một chút khi di chuột vào */
+}
+
+/* Thêm class 'playing' khi nhạc đang phát để tạo hiệu ứng */
+.music-box.playing {
+  animation: jiggle 0.5s infinite linear; /* Áp dụng animation lắc lư */
+}
+
+/* Định nghĩa animation lắc lư */
+@keyframes jiggle {
+  0% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* === CSS CHO BLINKIES TRANG TRÍ (LAYOUT 2 CỘT) === */
+.decorative-stamps {
+  display: grid; /* Chuyển sang dùng CSS Grid */
+  grid-template-columns: repeat(2, 1fr); /* Đây là dòng lệnh quan trọng nhất */
+  gap: 8px; /* Khoảng cách giữa các ảnh */
+  margin-top: 15px;
+  justify-items: center; /* Căn giữa các ảnh trong từng ô */
+}
+
+/* Đảm bảo các ảnh không bị tràn ra ngoài ô của nó */
+.decorative-stamps img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === CSS CHO SỔ LƯU BÚT GIẢ === */
+.guestbook-box {
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px dashed #a86464;
+  padding: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+.guestbook-box h4 {
+  margin: 0 0 5px 0;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+}
+.guestbook-box p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* === CSS CHO TÊN BÀI HÁT === */
+.now-playing {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #f5e0e0;
+  display: none; /* Ẩn theo mặc định */
+}
+.now-playing.visible {
+  display: block; /* Hiện ra khi nhạc phát */
+}
+
+/* === BẮT ĐẦU CSS CHO TO-DO LIST TƯƠNG TÁC === */
+
+/* (Tùy chọn) Nếu bạn dùng class mới, hãy thêm style này */
+.todo-box {
+  border: 2px solid #a86464;
+  background-color: #5a444e;
+  margin-bottom: 10px;
+}
+
+.todo-content ul {
+  list-style-type: none; /* Xóa các dấu chấm đầu dòng */
+  padding: 0 10px 10px 10px;
+  margin: 0;
+  text-align: left; /* Căn chữ về bên trái */
+}
+
+.todo-item {
+  padding: 5px 0;
+  cursor: pointer; /* Biến con trỏ thành hình bàn tay để cho biết có thể click */
+  transition: all 0.2s ease-in-out; /* Hiệu ứng chuyển động mượt mà */
+}
+
+/* Thêm hiệu ứng mờ đi khi di chuột vào */
+.todo-item:hover {
+  opacity: 0.7;
+}
+
+/* === ĐÂY LÀ PHẦN QUAN TRỌNG NHẤT === */
+/* Style khi một mục được bấm vào và có class 'completed' */
+.todo-item.completed {
+  text-decoration: line-through; /* Tạo dấu gạch ngang */
+  text-decoration-color: #f5e0e0; /* Màu của dấu gạch */
+  text-decoration-thickness: 2px; /* Độ dày của dấu gạch */
+  color: rgba(245, 224, 224, 0.6); /* Làm màu chữ mờ đi một chút */
+}
+
+/* === BẮT ĐẦU CSS CHO NÚT THU GỌN (COLLAPSIBLE) === */
+
+.collapsible-trigger {
+  font-family: "Press Start 2P", cursive;
+  font-size: 14px;
+  background-color: #a86464;
+  color: #3e2e36;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  border: 2px solid #5a444e;
+  text-align: center;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.collapsible-trigger:hover {
+  background-color: #c9999e;
+}
+
+/* Thêm mũi tên chỉ xuống */
+.collapsible-trigger::after {
+  content: " ▼";
+  font-size: 10px;
+}
+
+/* Đổi mũi tên thành chỉ lên khi đang active */
+.collapsible-trigger.active::after {
+  content: " ▲";
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background-color: transparent;
+}
+
+/* Style cho các phần tử bên trong cho đẹp hơn (tùy chọn) */
+.collapsible-content img {
+  margin-top: 15px;
+}
+.quote-text {
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px dashed #a86464;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* === BẮT ĐẦU CSS CHO VIDEO YOUTUBE RESPONSIVE === */
+
+/* 1. Tạo một hộp chứa giữ tỷ lệ 16:9 */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* Tỷ lệ 16:9 (9 / 16 = 0.5625) */
+  margin: 15px 0; /* Thêm khoảng cách trên dưới cho đẹp */
+}
+
+/* 2. Đặt iframe lấp đầy hoàn toàn hộp chứa đó */
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #a86464; /* (Tùy chọn) Thêm viền cho đồng bộ */
+}
+
+/* === BẮT ĐẦU CSS ĐỂ FIX VIDEO BỊ TRÀN === */
+
+.sidebar-video {
+  width: 100%; /* Đây là dòng mã "thần kỳ" */
+  height: auto; /* Giữ đúng tỷ lệ khung hình của video */
+  display: block; /* Loại bỏ khoảng trống thừa (nếu có) */
+  margin-top: 15px; /* Tạo khoảng cách với nội dung phía trên */
+}
