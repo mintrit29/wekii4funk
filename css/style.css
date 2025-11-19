@@ -512,3 +512,57 @@ body {
   display: block; /* Loại bỏ khoảng trống thừa (nếu có) */
   margin-top: 15px; /* Tạo khoảng cách với nội dung phía trên */
 }
+
+/* === CSS CHO SỔ LƯU BÚT GIẢ (BÂY GIỜ LÀ GISCUS) === */
+.guestbook-box {
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px dashed #a86464;
+  padding: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  max-height: 200px; /* Làm ô ngắn hơn (bạn có thể chỉnh thành 150px hoặc 250px tùy ý) */
+  overflow-y: auto; /* Thêm thanh cuộn dọc khi nội dung dài */
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu không cần */
+}
+
+.guestbook-box h4 {
+  margin: 0 0 5px 0;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+}
+
+/* Để phần Giscus khớp với box (nếu cần) */
+.guestbook-box .giscus {
+  min-height: 100px; /* Đảm bảo có chỗ hiển thị nội dung */
+}
+
+/* === CSS CHO COUNTDOWN BOX === */
+.countdown-box {
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px dashed #a86464;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+.countdown-box h4 {
+  margin: 0 0 5px 0;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+}
+
+#countdown-timer p {
+  margin: 3px 0;
+  color: #f5e0e0;
+}
+
+#countdown-timer span {
+  font-weight: bold;
+  color: #c9999e; /* Màu nổi bật */
+}

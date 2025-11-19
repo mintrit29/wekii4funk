@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nary's vinland</title>
     <link rel="stylesheet" href="css/style.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +21,6 @@
           >🍰Nary's vinland... I hope you enjoy your stay!🍓</marquee
         >
       </header>
-
       <div class="main-content">
         <aside class="left-sidebar">
           <div class="pic-log-box">
@@ -58,8 +56,18 @@
             </div>
           </div>
           <!-- === KẾT THÚC TO-DO LIST TƯƠNG TÁC === -->
+                     <!-- === BẮT ĐẦU COUNTDOWN SINH NHẬT === -->
+<div class="countdown-box">
+  <h4>NEXT BIRTHDAY</h4>
+  <div id="countdown-timer">
+    <p>Days left: <span id="days">?</span></p>
+    <p>Hours: <span id="hours">?</span></p>
+    <p>Minutes: <span id="minutes">?</span></p>
+    <p>Seconds: <span id="seconds">?</span></p>
+  </div>
+</div>
+<!-- === KẾT THÚC COUNTDOWN === -->
         </aside>
-
         <main class="center-content">
           <h2>✨Welcome to vinland...✨</h2>
           <img
@@ -68,12 +76,10 @@
             class="main-character"
           />
           <!-- === BẮT ĐẦU KHỐI NỘI DUNG THU GỌN === -->
-
           <!-- Đây là nút bấm để hiện/ẩn nội dung -->
           <button type="button" class="collapsible-trigger">
             📜 More Vinland Quote 📜
           </button>
-
           <!-- Đây là div chứa nội dung sẽ bị ẩn đi -->
           <div class="collapsible-content">
             <img src="images/TikVideo.App_7325625035123707169_4.jpeg" alt="" />
@@ -84,16 +90,13 @@
             <img src="images/TikVideo.App_7353044655770045729_7.jpeg" alt="" />
             <img src="images/TikVideo.App_7353044655770045729_8.jpeg" alt="" />
           </div>
-
           <!-- === KẾT THÚC KHỐI NỘI DUNG THU GỌN === -->
-
           <div>--------------------{♡}--------------------</div>
           <p>
             welcome to my lil corner on the web! ^o^ this is vindland! just
             wander around and take it easy..
           </p>
           <img src="https://cinni.net/img/site/rainbow-div.png" alt="rainbow" />
-
           <!-- === BẮT ĐẦU KHỐI MÃ GALLERY ẢNH === -->
           <div class="gallery-grid">
             <!-- Ảnh 1 -->
@@ -168,14 +171,11 @@
             </iframe>
           </div>
         </main>
-
         <aside class="right-sidebar">
           <!-- === BẮT ĐẦU TRÌNH PHÁT NHẠC KIỂU MỚI === -->
           <div class="audio-player">
             <!-- Thẻ audio ẩn vẫn giữ nguyên -->
             <audio id="myAudio" src="audio/Ethereal.mp3" loop></audio>
-            <!-- Thêm 'loop' để nhạc lặp lại -->
-
             <!-- Thay thế cụm controls bằng một hình ảnh duy nhất -->
             <img
               src="images/audio_img-removebg-preview.png"
@@ -214,28 +214,23 @@
             />
           </div>
           <!-- === KẾT THÚC BLINKIES TRANG TRÍ === -->
-          <!-- === BẮT ĐẦU SỔ LƯU BÚT GIẢ === -->
+          <!-- === BẮT ĐẦU PHẦN GUESTBOOK VỚI GISCUS === -->
           <div class="guestbook-box">
             <h4>GUESTBOOK</h4>
-            <p>
-              <strong>From:</strong> Triết<br />
-              <strong>Message:</strong> Thanks for being my friend. Have a
-              wonderful birthday! ♡
-            </p>
+            <!-- Đây là nơi Giscus sẽ hiển thị bình luận -->
+            <div class="giscus"></div>
           </div>
-          <!-- === KẾT THÚC SỔ LƯU BÚT GIẢ === -->
+          <!-- === KẾT THÚC PHẦN GUESTBOOK === -->
           <video
             class="sidebar-video"
             src="images/grok-video-9bdeb18c-5839-48eb-9c6a-88edcaef1d75.mp4"
           ></video>
         </aside>
       </div>
-
       <footer class="main-footer">
         <p>Today, 24 November is Nary's Birthday ℓo͟v͟ꫀ ყoυ .ᐟ</p>
       </footer>
     </div>
-
     <!-- === BẮT ĐẦU CỬA SỔ POPUP (MODAL) CHO ẢNH === -->
     <div id="imageModal" class="modal">
       <span class="close-button">&times;</span>
@@ -243,5 +238,23 @@
     </div>
     <!-- === KẾT THÚC CỬA SỔ POPUP (MODAL) === -->
     <script src="js/script.js"></script>
+    
+    <!-- === THÊM SCRIPT GISCUS VÀO ĐÂY (Thay thế các giá trị bằng của bạn) === -->
+    <script src="https://giscus.app/client.js"
+        data-repo="mintrit29/wekii4funk"  // Ví dụ: "username/repo-guestbook"
+        data-repo-id="R_kgDOQUEeRw"
+        data-category="Comments"  // Ví dụ: "Guestbook"
+        data-category-id="DIC_kwDOQUEeR84Cx7u-"
+        data-mapping="number"
+        data-term="1"
+        data-strict="1"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="catppuccin_mocha"  // Hoặc "dark" để khớp với theme trang
+        data-lang="en"  // Thay "vi" nếu hỗ trợ
+        crossorigin="anonymous"
+        async>
+    </script>
   </body>
 </html>
